@@ -59,26 +59,25 @@ export default function RoadmapPage() {
       <div className="flex flex-col w-full min-h-screen">
         <section className="flex-grow flex flex-col items-center justify-center py-10">
           <div className="container mx-auto px-4">
-            <h1 className="text-4xl font-bold mb-10 text-center">Development Journey</h1>
-            
+            <h1 className="text-4xl font-bold mb-10 text-center">
+              Development Journey
+            </h1>
+
             {/* Two column layout */}
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-10">
               {/* Roadmap column - Takes up 3/5 on large screens */}
               <div className="lg:col-span-3">
                 <div className="w-full h-full">
-                  <RoadmapStepper 
-                    items={roadmapItems} 
-                    className="h-full"
-                  />
+                  <RoadmapStepper className="h-full" items={roadmapItems} />
                 </div>
               </div>
-              
+
               {/* Newsletter form column - Takes up 2/5 on large screens */}
               <div className="lg:col-span-2">
                 <NewsletterForm />
               </div>
             </div>
-            
+
             {/* Mission Statement Card */}
             <div className="mt-8 mb-6 max-w-4xl mx-auto">
               <motion.div
@@ -117,16 +116,23 @@ export default function RoadmapPage() {
                       initial={{ opacity: 0 }}
                       transition={{ delay: 0.6, duration: 0.5 }}
                     >
-                      At SkyRhythm, we&apos;re creating more than just a game - we&apos;re crafting an experience that challenges perception and reflex. 
-                      Our mission is to blend mesmerizing visuals with innovative gameplay mechanics, creating a sci-fi rhythm adventure 
-                      that transports players to a world where music and movement become one.
+                      At SkyRhythm, we&apos;re creating more than just a game -
+                      we&apos;re crafting an experience that challenges
+                      perception and reflex. Our mission is to blend mesmerizing
+                      visuals with innovative gameplay mechanics, creating a
+                      sci-fi rhythm adventure that transports players to a world
+                      where music and movement become one.
                     </motion.p>
 
                     <div className="flex justify-center mt-6">
                       <motion.div
                         animate={{ scale: 1, opacity: 1 }}
                         initial={{ scale: 0.9, opacity: 0 }}
-                        transition={{ delay: 0.8, duration: 0.3, type: "spring" }}
+                        transition={{
+                          delay: 0.8,
+                          duration: 0.3,
+                          type: "spring",
+                        }}
                       >
                         <MButton className="px-8">
                           <Link href="/game">Play Demo</Link>

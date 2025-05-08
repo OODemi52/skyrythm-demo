@@ -41,7 +41,7 @@ export function NewsletterForm() {
     setErrors({});
 
     try {
-      const validatedData = newsletterSchema.parse(formData);
+      newsletterSchema.parse(formData);
 
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));

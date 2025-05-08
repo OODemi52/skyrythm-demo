@@ -2,10 +2,9 @@
 
 import { Card, CardBody } from "@heroui/card";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "@heroui/link";
 
-import { Button as MButton } from "@/components/moving-border";
 import VideoBackground from "@/components/video-background";
 import { OrbitingCircles } from "@/components/orbiting-circles";
 import HoverSocial from "@/components/hover-social";

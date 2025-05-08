@@ -45,7 +45,7 @@ export const RoadmapStepper = ({
   }, [items]);
 
   return (
-    <Card 
+    <Card
       className={cn("w-full overflow-hidden", className)}
       style={{
         backgroundColor: `rgba(20, 20, 30, 0.85)`,
@@ -57,8 +57,6 @@ export const RoadmapStepper = ({
       <CardBody className="py-4">
         <div className="space-y-1 mb-4">
           <TextAnimate
-            text="Development Roadmap"
-            type="calmInUp"
             className="!text-xl !font-bold !text-center !mb-1"
             style={{
               background: `linear-gradient(135deg, #FF6B6B 0%, #FFB88C 100%)`,
@@ -67,6 +65,8 @@ export const RoadmapStepper = ({
               backgroundClip: "text",
               textShadow: `0 0 1px rgba(255,255,255,0.5), 0 0 15px rgba(255, 100, 100, 0.6)`,
             }}
+            text="Development Roadmap"
+            type="calmInUp"
           />
           <p className="text-neutral-500 dark:text-neutral-400 text-center text-sm">
             Track our progress as we build the game
@@ -83,31 +83,49 @@ export const RoadmapStepper = ({
 
               {/* Progress line animation */}
               {index < items.length - 1 && index < activeStep && (
-                <motion.div 
+                <motion.div
+                  animate={{ height: "100%" }}
                   className="absolute left-4 top-5 h-full w-0.5 -translate-x-1/2 bg-primary dark:bg-primary"
                   initial={{ height: 0 }}
-                  animate={{ height: "100%" }}
                   transition={{ duration: 0.5, delay: index * 0.2 }}
                 />
               )}
 
               <div className="flex items-start gap-3 p-2">
                 {/* Circle indicator */}
-                <motion.div 
+                <motion.div
+                  animate={
+                    index <= activeStep
+                      ? { scale: 1, opacity: 1 }
+                      : { scale: 0.5, opacity: 0.5 }
+                  }
                   className={cn(
                     "flex size-8 shrink-0 items-center justify-center rounded-full border",
-                    item.status === "completed" 
-                      ? "border-primary bg-primary text-white" 
+                    item.status === "completed"
+                      ? "border-primary bg-primary text-white"
                       : item.status === "current"
                         ? "border-primary bg-primary/10 text-primary"
-                        : "border-neutral-300 bg-neutral-100 text-neutral-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400"
+                        : "border-neutral-300 bg-neutral-100 text-neutral-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400",
                   )}
-                  initial={index <= activeStep ? { scale: 0 } : { scale: 0.5, opacity: 0.5 }}
-                  animate={index <= activeStep ? { scale: 1, opacity: 1 } : { scale: 0.5, opacity: 0.5 }}
+                  initial={
+                    index <= activeStep
+                      ? { scale: 0 }
+                      : { scale: 0.5, opacity: 0.5 }
+                  }
                   transition={{ duration: 0.3, delay: index * 0.2 }}
                 >
                   {item.status === "completed" ? (
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <svg
+                      fill="none"
+                      height="16"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="3"
+                      viewBox="0 0 24 24"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                   ) : (
@@ -116,10 +134,10 @@ export const RoadmapStepper = ({
                 </motion.div>
 
                 {/* Content */}
-                <motion.div 
+                <motion.div
+                  animate={{ x: 0, opacity: 1 }}
                   className="flex-1"
                   initial={{ x: 20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.3, delay: index * 0.2 }}
                 >
                   <div className="flex flex-col gap-0.5 pb-3">

@@ -27,7 +27,8 @@ export default function VideoBackground({
 
       if (playPromise !== undefined) {
         playPromise.catch((error) => {
-          console.error("Auto-play was prevented:", error);
+          // Handle auto-play prevention error (e.g., log to an external service)
+          handleAutoPlayError(error);
         });
       }
     }
